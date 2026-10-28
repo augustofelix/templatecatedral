@@ -1,0 +1,16 @@
+/* Área de contenido — #content de Catedral Cloud */
+
+#content {
+  height: calc(100vh - 128px);
+  padding: 12px clamp(16px, 2.2vw, 32px) 32px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background: var(--surface-canvas);
+  scrollbar-color: var(--border-standard) transparent;
+}
+
+@media (max-width: 991px) {
+  #content {
+    padding: 10px 12px 24px;
+  }
+}

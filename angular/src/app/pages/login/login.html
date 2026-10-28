@@ -1,0 +1,111 @@
+<div class="login-page">
+  <!-- Panel de imagen + propuesta de valor (desktop) -->
+  <div class="login-img">
+    <div class="logo-login">
+      <div class="login-brand">
+        <span class="login-brand-mark"><img src="assets/img/icon-badge-pwa.png" alt="" /></span>
+        <span class="login-brand-copy">
+          <strong>Catedral Cloud</strong>
+          <small>Gestión empresarial</small>
+        </span>
+      </div>
+    </div>
+
+    <div class="login-value-proposition">
+      <span>Plataforma integral</span>
+      <h1>La gestión de tu organización, en un solo lugar.</h1>
+      <p>Personas, documentos, control horario y operación diaria con información clara y segura.</p>
+    </div>
+
+    <div class="footer-login">
+      <div>
+        <div class="social-networks">
+          <a class="no-style" href="https://www.facebook.com/CatedralSoftware" target="_blank"><img src="assets/img/facebook-icon.png" alt="Facebook" /></a>
+          <a class="no-style" href="https://twitter.com/catedralsoft" target="_blank"><img src="assets/img/twitter-icon.png" alt="Twitter" /></a>
+          <a class="no-style" href="https://www.instagram.com/catedralsoft" target="_blank"><img src="assets/img/icon-instagram.png" alt="Instagram" /></a>
+        </div>
+        <p>
+          <a class="no-style" href="#" target="_blank">Términos y condiciones</a> |
+          <a class="no-style" href="#" target="_blank">Política de privacidad</a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Formulario -->
+  <div class="login-form-container">
+    <div class="login-form-container-inner">
+      <div class="logo-mobile">
+        <div class="login-brand">
+          <span class="login-brand-mark"><img src="assets/img/icon-badge-pwa.png" alt="" /></span>
+          <span class="login-brand-copy">
+            <strong>Catedral Cloud</strong>
+            <small>Gestión empresarial</small>
+          </span>
+        </div>
+      </div>
+
+      <div class="login-form">
+        <h3>Bienvenido</h3>
+        <p class="login-intro">Ingresá tus datos para acceder a tu espacio de trabajo.</p>
+
+        <form [formGroup]="form" (ngSubmit)="login()" novalidate>
+          @let username = form.controls.username;
+          <div class="form-group">
+            <label class="form-label" for="user-mail">Usuario</label>
+            <input
+              class="form-control"
+              [class.is-invalid]="username.touched && username.invalid"
+              type="text"
+              id="user-mail"
+              formControlName="username"
+              placeholder="Ingresá tu usuario"
+              autocomplete="username"
+            />
+            @if (username.touched && username.invalid) {
+              <small class="form-error">Ingresá tu usuario</small>
+            }
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="user-password">Contraseña</label>
+            <div class="password-container">
+              <input
+                class="form-control"
+                [type]="showPassword() ? 'text' : 'password'"
+                id="user-password"
+                formControlName="password"
+                placeholder="Ingresá tu contraseña"
+                autocomplete="current-password"
+              />
+              <img
+                src="assets/img/view.png"
+                alt="Mostrar contraseña"
+                (click)="showPassword.set(!showPassword())"
+              />
+            </div>
+          </div>
+
+          <mat-checkbox formControlName="rememberme" disableRipple>Recordarme</mat-checkbox>
+
+          <button mat-flat-button type="submit" class="login-submit">Ingresar</button>
+          <a href="#">Recuperar contraseña</a>
+        </form>
+      </div>
+    </div>
+
+    <div class="footer-login-mobile">
+      <div class="social-networks-mobile">
+        <a class="no-style" href="https://www.facebook.com/CatedralSoftware" target="_blank"><img src="assets/img/facebook-icon.png" alt="Facebook" /></a>
+        <a class="no-style" href="https://twitter.com/catedralsoft" target="_blank"><img src="assets/img/twitter-icon.png" alt="Twitter" /></a>
+        <a class="no-style" href="https://www.instagram.com/catedralsoft" target="_blank"><img src="assets/img/icon-instagram.png" alt="Instagram" /></a>
+      </div>
+      <div class="footer-info">
+        <p>
+          <a class="no-style" href="#" target="_blank">Términos y condiciones</a> |
+          <a class="no-style" href="#" target="_blank">Política de privacidad</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

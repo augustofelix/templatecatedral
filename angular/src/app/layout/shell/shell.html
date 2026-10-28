@@ -1,0 +1,13 @@
+<app-sidebar />
+
+<section id="main-container" [class.is-collapsed]="layout.collapsed()">
+  <div
+    id="main-menu-background"
+    [class.show]="layout.mobileOpen()"
+    (click)="layout.closeMobile()"
+  ></div>
+
+  <app-topbar [workspace]="workspace" [user]="user" [notifications]="2" />
+
+  <router-outlet />
+</section>

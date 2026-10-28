@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Ingresar</title>
+  <link rel="icon" href="assets/img/favicon.png">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/login.css">
+</head>
+<body class="login-page">
+
+  <!-- Panel de imagen + propuesta de valor (desktop) -->
+  <div class="login-img">
+    <div class="logo-login">
+      <div class="login-brand">
+        <span class="login-brand-mark"><img src="assets/img/icon-badge-pwa.png" alt=""></span>
+        <span class="login-brand-copy">
+          <strong>Catedral Cloud</strong>
+          <small>Gestión empresarial</small>
+        </span>
+      </div>
+    </div>
+
+    <div class="login-value-proposition">
+      <span>Plataforma integral</span>
+      <h1>La gestión de tu organización, en un solo lugar.</h1>
+      <p>Personas, documentos, control horario y operación diaria con información clara y segura.</p>
+    </div>
+
+    <div class="footer-login">
+      <div>
+        <div class="social-networks">
+          <a class="no-style" href="https://www.facebook.com/CatedralSoftware" target="_blank"><img src="assets/img/facebook-icon.png" alt="Facebook"></a>
+          <a class="no-style" href="https://twitter.com/catedralsoft" target="_blank"><img src="assets/img/twitter-icon.png" alt="Twitter"></a>
+          <a class="no-style" href="https://www.instagram.com/catedralsoft" target="_blank"><img src="assets/img/icon-instagram.png" alt="Instagram"></a>
+        </div>
+        <p>
+          <a class="no-style" href="#" target="_blank">Términos y condiciones</a> |
+          <a class="no-style" href="#" target="_blank">Política de privacidad</a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Formulario -->
+  <div class="login-form-container">
+    <div class="login-form-container-inner">
+      <div class="logo-mobile">
+        <div class="login-brand">
+          <span class="login-brand-mark"><img src="assets/img/icon-badge-pwa.png" alt=""></span>
+          <span class="login-brand-copy">
+            <strong>Catedral Cloud</strong>
+            <small>Gestión empresarial</small>
+          </span>
+        </div>
+      </div>
+
+      <div class="login-form">
+        <h3>Bienvenido</h3>
+        <p class="login-intro">Ingresá tus datos para acceder a tu espacio de trabajo.</p>
+
+        <form id="login-form" novalidate>
+          <div class="form-group">
+            <label class="form-label" for="user-mail">Usuario</label>
+            <input class="form-control" type="text" id="user-mail" name="username" placeholder="Ingresá tu usuario" autocomplete="username">
+            <small class="form-error" id="user-error" hidden></small>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="user-password">Contraseña</label>
+            <div class="password-container">
+              <input class="form-control" type="password" id="user-password" name="password" placeholder="Ingresá tu contraseña" autocomplete="current-password">
+              <img src="assets/img/view.png" alt="Mostrar contraseña" id="toggle-password">
+            </div>
+          </div>
+
+          <label class="checkbox">
+            <input type="checkbox" name="rememberme"> Recordarme
+          </label>
+
+          <button type="submit" class="btn btn-primary">Ingresar</button>
+          <a href="#">Recuperar contraseña</a>
+        </form>
+      </div>
+    </div>
+
+    <div class="footer-login-mobile">
+      <div class="social-networks-mobile">
+        <a class="no-style" href="https://www.facebook.com/CatedralSoftware" target="_blank"><img src="assets/img/facebook-icon.png" alt="Facebook"></a>
+        <a class="no-style" href="https://twitter.com/catedralsoft" target="_blank"><img src="assets/img/twitter-icon.png" alt="Twitter"></a>
+        <a class="no-style" href="https://www.instagram.com/catedralsoft" target="_blank"><img src="assets/img/icon-instagram.png" alt="Instagram"></a>
+      </div>
+      <div class="footer-info">
+        <p>
+          <a class="no-style" href="#" target="_blank">Términos y condiciones</a> |
+          <a class="no-style" href="#" target="_blank">Política de privacidad</a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const password = document.getElementById('user-password');
+    document.getElementById('toggle-password').addEventListener('click', () => {
+      password.type = password.type === 'password' ? 'text' : 'password';
+    });
+
+    // Ejemplo de validación: reemplazar por la llamada real de autenticación
+    document.getElementById('login-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const user = document.getElementById('user-mail');
+      const error = document.getElementById('user-error');
+      const empty = !user.value.trim();
+      user.classList.toggle('is-invalid', empty);
+      error.hidden = !empty;
+      error.textContent = empty ? 'Ingresá tu usuario' : '';
+      if (!empty) window.location.href = 'index.html';
+    });
+  </script>
+</body>
+</html>

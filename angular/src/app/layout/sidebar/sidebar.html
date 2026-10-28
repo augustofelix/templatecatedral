@@ -1,0 +1,111 @@
+<aside id="main-menu" [class.is-collapsed]="layout.collapsed()" [class.show]="layout.mobileOpen()">
+  <div id="main-menu-header">
+    <div class="brand-lockup">
+      <div class="brand-mark" aria-hidden="true">
+        <img src="assets/img/icon-badge-pwa.png" alt="" />
+      </div>
+      @if (!layout.collapsed()) {
+        <div class="brand-copy">
+          <strong>Catedral Cloud</strong>
+          <span>Gestión empresarial</span>
+        </div>
+      }
+    </div>
+    <div class="header-actions">
+      <button
+        class="collapse-toggle-btn"
+        title="Colapsar o expandir menú"
+        aria-label="Colapsar o expandir menú"
+        (click)="layout.toggleCollapsed()"
+      >
+        <svg
+          [lucideIcon]="layout.collapsed() ? PanelLeftOpen : PanelLeftClose"
+          [size]="layout.collapsed() ? 14 : 18"
+        />
+      </button>
+    </div>
+  </div>
+
+  <nav class="enterprise-sidebar">
+    @for (group of groups; track group.label) {
+      <div class="menu-service-group" [class.is-expanded]="!collapsedGroups().has(group.label)">
+        <div class="service-header" [title]="group.label" (click)="toggleGroup(group.label)">
+          <span class="service-label">{{ group.label }}</span>
+          <svg class="service-chevron" [lucideIcon]="ChevronDown" [size]="14" />
+        </div>
+        <div class="collapsed-service-indicator" [title]="group.label">{{ group.shortLabel }}</div>
+
+        <div class="service-items">
+          <div>
+            @for (item of group.items; track $index) {
+              <div class="main-item-container" (mouseenter)="onItemHover($event)">
+                @if (item.children) {
+                  <div
+                    class="main-item"
+                    [class.is-expanded]="openItems().has(item)"
+                    [title]="item.label"
+                    (click)="toggleItem(item)"
+                  >
+                    <span class="item-icon"><svg [lucideIcon]="item.icon" [size]="18" /></span>
+                    <p class="item-label">{{ item.label }}</p>
+                    <svg class="item-chevron" [lucideIcon]="ChevronRight" [size]="14" />
+                  </div>
+                  <ul
+                    class="sub-item-list"
+                    [class.is-open]="openItems().has(item)"
+                    [style.top.px]="layout.collapsed() ? floatingTop() : null"
+                  >
+                    <div>
+                      @for (sub of item.children; track sub.route) {
+                        <li
+                          class="sub-item"
+                          [routerLink]="sub.route"
+                          routerLinkActive="is-active"
+                          (click)="onNavigate()"
+                        >
+                          <span class="sub-item-label">{{ sub.label }}</span>
+                        </li>
+                      }
+                    </div>
+                  </ul>
+                } @else {
+                  <a
+                    class="main-item"
+                    [routerLink]="item.route"
+                    routerLinkActive="is-active"
+                    [routerLinkActiveOptions]="{ exact: true }"
+                    [title]="item.label"
+                    (click)="onNavigate()"
+                  >
+                    <span class="item-icon"><svg [lucideIcon]="item.icon" [size]="18" /></span>
+                    <p class="item-label">{{ item.label }}</p>
+                    @if (item.badge) {
+                      <span class="item-badge">{{ item.badge }}</span>
+                    }
+                  </a>
+                }
+              </div>
+            }
+          </div>
+        </div>
+      </div>
+    }
+  </nav>
+
+  <div id="main-menu-footer">
+    <div>
+      <a class="no-style" href="https://www.facebook.com/CatedralSoftware" target="_blank">
+        <img src="assets/img/facebook-icon.png" alt="Facebook" />
+      </a>
+      <a class="no-style" href="https://twitter.com/catedralsoft" target="_blank">
+        <img src="assets/img/twitter-icon.png" alt="Twitter" />
+      </a>
+      <a class="no-style" href="https://www.instagram.com/catedralsoft" target="_blank">
+        <img src="assets/img/icon-instagram.png" alt="Instagram" />
+      </a>
+    </div>
+    <div>
+      <p><span>© {{ year }} - Catedral Software</span><br />Todos los derechos reservados</p>
+    </div>
+  </div>
+</aside>

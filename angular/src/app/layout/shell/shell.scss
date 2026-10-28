@@ -1,0 +1,43 @@
+/* Contenedor principal — #main-container de Catedral Cloud */
+
+:host {
+  display: block;
+  height: 100%;
+  overflow: hidden;
+}
+
+#main-container {
+  position: fixed;
+  inset: 0;
+  z-index: 99;
+  min-width: 0;
+  padding-left: 0;
+  background: var(--surface-canvas);
+  transition: padding-left var(--sidebar-transition);
+  will-change: padding-left;
+}
+
+#main-menu-background {
+  position: fixed;
+  z-index: 1000;
+  width: 0;
+  height: 100%;
+  background: var(--brand-ink);
+  opacity: 0;
+  transition: opacity .5s ease;
+
+  &.show {
+    width: 100%;
+    opacity: .5;
+  }
+}
+
+@media (min-width: 992px) {
+  #main-container {
+    padding-left: var(--sidebar-width);
+
+    &.is-collapsed {
+      padding-left: var(--sidebar-collapsed-width);
+    }
+  }
+}

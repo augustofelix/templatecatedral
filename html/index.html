@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Inicio</title>
+  <link rel="icon" href="assets/img/favicon.png">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <aside id="main-menu">
+    <div id="main-menu-header">
+      <div class="brand-lockup">
+        <div class="brand-mark" aria-hidden="true"><img src="assets/img/icon-badge-pwa.png" alt=""></div>
+        <div class="brand-copy">
+          <strong>Catedral Cloud</strong>
+          <span>Gestión empresarial</span>
+        </div>
+      </div>
+      <div class="header-actions">
+        <button class="collapse-toggle-btn" id="collapse-toggle" title="Colapsar o expandir menú" aria-label="Colapsar o expandir menú">
+          <i data-lucide="panel-left-close"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Menú de ejemplo: reemplazar grupos, ítems e íconos por los reales -->
+    <nav class="enterprise-sidebar">
+      <div class="menu-service-group is-expanded">
+        <div class="service-header" title="Grupo 1">
+          <span class="service-label">Grupo 1</span>
+          <span class="service-chevron"><i data-lucide="chevron-down"></i></span>
+        </div>
+        <div class="collapsed-service-indicator" title="Grupo 1">G1</div>
+        <div class="service-items">
+          <div>
+            <div class="main-item-container">
+              <div class="main-item is-active" title="Inicio">
+                <span class="item-icon"><i data-lucide="house"></i></span>
+                <p class="item-label">Inicio</p>
+              </div>
+            </div>
+            <div class="main-item-container">
+              <div class="main-item" title="Ítem con badge">
+                <span class="item-icon"><i data-lucide="file-text"></i></span>
+                <p class="item-label">Ítem con badge</p>
+                <span class="item-badge">3</span>
+              </div>
+            </div>
+            <div class="main-item-container">
+              <div class="main-item has-children" title="Ítem con submenú">
+                <span class="item-icon"><i data-lucide="folder"></i></span>
+                <p class="item-label">Ítem con submenú</p>
+                <span class="item-chevron"><i data-lucide="chevron-right"></i></span>
+              </div>
+              <ul class="sub-item-list">
+                <div>
+                  <li class="sub-item is-active"><span class="sub-item-label">Subítem 1</span></li>
+                  <li class="sub-item"><span class="sub-item-label">Subítem 2</span></li>
+                  <li class="sub-item"><span class="sub-item-label">Subítem 3</span></li>
+                </div>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-service-group is-expanded">
+        <div class="service-header" title="Grupo 2">
+          <span class="service-label">Grupo 2</span>
+          <span class="service-chevron"><i data-lucide="chevron-down"></i></span>
+        </div>
+        <div class="collapsed-service-indicator" title="Grupo 2">G2</div>
+        <div class="service-items">
+          <div>
+            <div class="main-item-container">
+              <div class="main-item" title="Ítem">
+                <span class="item-icon"><i data-lucide="users"></i></span>
+                <p class="item-label">Ítem</p>
+              </div>
+            </div>
+            <div class="main-item-container">
+              <div class="main-item" title="Ítem">
+                <span class="item-icon"><i data-lucide="settings"></i></span>
+                <p class="item-label">Ítem</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div id="main-menu-footer">
+      <div>
+        <a class="no-style" href="https://www.facebook.com/CatedralSoftware" target="_blank"><img src="assets/img/facebook-icon.png" alt="Facebook"></a>
+        <a class="no-style" href="https://twitter.com/catedralsoft" target="_blank"><img src="assets/img/twitter-icon.png" alt="Twitter"></a>
+        <a class="no-style" href="https://www.instagram.com/catedralsoft" target="_blank"><img src="assets/img/icon-instagram.png" alt="Instagram"></a>
+      </div>
+      <div>
+        <p><span>© <span id="year"></span> - Catedral Software</span><br>Todos los derechos reservados</p>
+      </div>
+    </div>
+  </aside>
+
+  <section id="main-container">
+    <div id="main-menu-background"></div>
+
+    <!-- Topbar -->
+    <nav class="workspace-topbar">
+      <button type="button" class="mobile-menu-trigger" id="mobile-menu-trigger" aria-label="Abrir menú principal">
+        <i data-lucide="menu"></i>
+      </button>
+
+      <div class="workspace">
+        <span class="workspace-label">Espacio de trabajo</span>
+        <p>Razón social de ejemplo S.A.</p>
+      </div>
+
+      <div class="topbar-actions">
+        <button type="button" class="topbar-icon-button" title="Ayuda" aria-label="Abrir ayuda virtual">
+          <i data-lucide="circle-help"></i>
+        </button>
+        <a class="topbar-icon-button" href="#" title="Notificaciones" aria-label="Ver notificaciones">
+          <i data-lucide="bell"></i>
+          <span class="notification-count">2</span>
+        </a>
+
+        <div id="menu-user">
+          <span class="data-letters">NA</span>
+          <div class="profile-summary">
+            <span class="profile-label">Mi cuenta</span>
+            <strong>Nombre Apellido</strong>
+          </div>
+          <i data-lucide="chevron-down" class="user-chevron"></i>
+
+          <div id="menu-user-collapse">
+            <div class="profile-dropdown-header">
+              <span class="data-letters">NA</span>
+              <div class="profile-dropdown-user">
+                <strong>Nombre Apellido</strong>
+                <span>usuario@ejemplo.com</span>
+              </div>
+            </div>
+            <button type="button" class="profile-menu-item"><i data-lucide="user"></i><span>Mis datos</span></button>
+            <button type="button" class="profile-menu-item profile-menu-logout" onclick="location.href='login.html'"><i data-lucide="log-out"></i><span>Cerrar sesión</span></button>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Encabezado de página -->
+    <div id="section-header">
+      <div class="title-group">
+        <button class="back-button" title="Volver a la página anterior" onclick="history.back()">
+          <i data-lucide="arrow-left"></i>
+        </button>
+        <div class="title-container">
+          <div class="title-decorator"></div>
+          <div class="title-text">
+            <h1>Título de la página</h1>
+            <p>Subtítulo opcional</p>
+          </div>
+        </div>
+      </div>
+      <div class="page-buttons-container">
+        <button type="button" class="btn btn-primary">Acción</button>
+      </div>
+    </div>
+
+    <!-- Contenido -->
+    <div id="content">
+      <div class="panel">Contenido de la página</div>
+    </div>
+  </section>
+
+  <script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
+  <script src="js/layout.js"></script>
+</body>
+</html>

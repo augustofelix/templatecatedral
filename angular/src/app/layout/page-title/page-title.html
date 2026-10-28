@@ -1,0 +1,21 @@
+<div id="section-header">
+  <div class="title-group">
+    @if (showBack()) {
+      <button class="back-button" title="Volver a la página anterior" (click)="back()">
+        <svg [lucideIcon]="ArrowLeft" [size]="18" />
+      </button>
+    }
+    <div class="title-container">
+      <div class="title-decorator"></div>
+      <div class="title-text">
+        <h1>{{ title() }}</h1>
+        @if (subtitle()) {
+          <p>{{ subtitle() }}</p>
+        }
+      </div>
+    </div>
+  </div>
+  <div class="page-buttons-container">
+    <ng-content />
+  </div>
+</div>

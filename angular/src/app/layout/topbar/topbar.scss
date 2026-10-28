@@ -1,0 +1,185 @@
+/* Topbar — app-user-navbar de Catedral Cloud */
+
+:host {
+  display: block;
+}
+
+.workspace-topbar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 64px;
+  padding: 0 24px;
+  background: var(--surface-base);
+  border-bottom: 1px solid var(--border-soft);
+}
+
+.mobile-menu-trigger {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 1px solid var(--brand-line);
+  border-radius: var(--radius-control);
+  background: var(--brand-soft);
+  color: var(--brand-action);
+  cursor: pointer;
+}
+
+.workspace {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  min-width: 0;
+  max-width: min(46vw, 520px);
+
+  p {
+    max-width: 100%;
+    margin: 0;
+    overflow: hidden;
+    color: var(--text-secondary);
+    font-size: 13px;
+    font-weight: 620;
+    line-height: 1.15;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+
+.workspace-label,
+.profile-label {
+  display: block;
+  color: var(--text-muted);
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-left: auto;
+}
+
+.topbar-icon-button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  padding: 7px;
+  border: 1px solid transparent;
+  border-radius: var(--radius-control);
+  background: transparent;
+  color: var(--text-tertiary);
+  cursor: pointer;
+  transition: background-color .16s ease, border-color .16s ease;
+
+  &:hover {
+    border-color: var(--border-soft);
+    background: var(--surface-subtle);
+  }
+}
+
+.notification-count {
+  position: absolute;
+  top: -3px;
+  right: -4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 17px;
+  height: 17px;
+  padding: 0 4px;
+  border: 2px solid var(--surface-base);
+  border-radius: 9px;
+  background: var(--danger-ink);
+  color: #fff;
+  font-size: 9px;
+  font-weight: 700;
+}
+
+.menu-user {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  height: 44px;
+  margin-left: 4px;
+  padding: 4px 7px;
+  border: 1px solid transparent;
+  border-radius: var(--radius-control);
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color .16s ease, border-color .16s ease;
+
+  &:hover {
+    background: var(--surface-subtle);
+    border-color: var(--border-soft);
+  }
+}
+
+.user-chevron {
+  margin-left: 1px;
+  color: var(--text-muted);
+}
+
+.profile-summary {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+
+  strong {
+    max-width: 180px;
+    overflow: hidden;
+    color: var(--text-primary);
+    font-size: 13px;
+    font-weight: 650;
+    line-height: 1.1;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 991px) {
+  .workspace-topbar {
+    padding: 0 12px;
+  }
+
+  .mobile-menu-trigger {
+    display: flex;
+  }
+
+  .workspace-label,
+  .profile-summary {
+    display: none;
+  }
+
+  .workspace p {
+    font-size: 12px;
+  }
+
+  .topbar-actions {
+    gap: 0;
+  }
+}
+
+@media (max-width: 575px) {
+  .topbar-icon-button {
+    width: 32px;
+    height: 32px;
+    padding: 5px;
+  }
+
+  .menu-user {
+    padding: 0;
+  }
+}

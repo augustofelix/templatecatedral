@@ -1,0 +1,54 @@
+<nav class="workspace-topbar">
+  <button
+    type="button"
+    class="mobile-menu-trigger"
+    aria-label="Abrir menú principal"
+    (click)="layout.openMobile()"
+  >
+    <svg [lucideIcon]="Menu" [size]="20" />
+  </button>
+
+  <div class="workspace">
+    <span class="workspace-label">Espacio de trabajo</span>
+    <p>{{ workspace() }}</p>
+  </div>
+
+  <div class="topbar-actions">
+    <button type="button" class="topbar-icon-button" matTooltip="Ayuda" aria-label="Abrir ayuda virtual">
+      <svg [lucideIcon]="CircleHelp" [size]="20" />
+    </button>
+    <button type="button" class="topbar-icon-button" matTooltip="Notificaciones" aria-label="Ver notificaciones">
+      <svg [lucideIcon]="Bell" [size]="20" />
+      @if (notifications()) {
+        <span class="notification-count">{{ notifications() }}</span>
+      }
+    </button>
+
+    <button type="button" class="menu-user" [matMenuTriggerFor]="profileMenu">
+      <span class="data-letters">{{ initials() }}</span>
+      <span class="profile-summary">
+        <span class="profile-label">Mi cuenta</span>
+        <strong>{{ user().name }}</strong>
+      </span>
+      <svg class="user-chevron" [lucideIcon]="ChevronDown" [size]="14" />
+    </button>
+  </div>
+</nav>
+
+<mat-menu #profileMenu="matMenu" xPosition="before" class="profile-menu-panel">
+  <div class="profile-dropdown-header">
+    <span class="data-letters">{{ initials() }}</span>
+    <div class="profile-dropdown-user">
+      <strong>{{ user().name }}</strong>
+      <span>{{ user().email }}</span>
+    </div>
+  </div>
+  <button mat-menu-item class="profile-menu-item">
+    <svg [lucideIcon]="User" [size]="16" />
+    <span>Mis datos</span>
+  </button>
+  <button mat-menu-item class="profile-menu-item profile-menu-logout" (click)="logout()">
+    <svg [lucideIcon]="LogOut" [size]="16" />
+    <span>Cerrar sesión</span>
+  </button>
+</mat-menu>
